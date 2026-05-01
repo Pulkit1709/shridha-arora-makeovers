@@ -1,0 +1,127 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #FAF6F0;
+  --foreground: #0D0A0B;
+  --card: #FFFFFF;
+  --card-foreground: #0D0A0B;
+  --popover: #FFFFFF;
+  --popover-foreground: #0D0A0B;
+  --primary: #0D0A0B;
+  --primary-foreground: #FAF6F0;
+  --secondary: #FAF6F0;
+  --secondary-foreground: #0D0A0B;
+  --muted: #F5F0E8;
+  --muted-foreground: #8A7280;
+  --accent: #BF9B5A;
+  --accent-foreground: #0D0A0B;
+  --destructive: #C8506A;
+  --destructive-foreground: #FAF6F0;
+  --border: #E5DDD3;
+  --input: #E5DDD3;
+  --ring: #BF9B5A;
+  --radius: 0.5rem;
+  
+  /* Custom colors */
+  --gold: #BF9B5A;
+  --rose: #C8506A;
+  --cream: #FAF6F0;
+  --dark: #0D0A0B;
+  --muted-text: #8A7280;
+}
+
+@theme inline {
+  --font-sans: 'Jost', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-mono: 'Geist Mono', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-gold: var(--gold);
+  --color-rose: var(--rose);
+  --color-cream: var(--cream);
+  --color-dark: var(--dark);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-cream text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0D0A0B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #BF9B5A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4B06A;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* WhatsApp pulse animation */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.5s ease-out infinite;
+}
